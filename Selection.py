@@ -37,5 +37,5 @@ print("L1 non triée :", L1)
 tri_selection(L1)
 temps_execution = tri_selection(L1)
 
-print("L1 triée :", L1)
-print("Temps d'exécution de l'algorithme de tri par Selection :", temps_execution, "secondes")
+print("\nL1 triée :\n", L1)
+print("Temps d'exécution de l'algorithme de tri par Selection :\n", temps_execution, "secondes")
