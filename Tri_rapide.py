@@ -31,7 +31,7 @@ class QuickSort:
 
 
 if __name__ == "__main__":
-    array = ListeCreator.create_random_array(5000000) # Use the function to create a random array
+    array = ListeCreator.create_random_array(1000) # Use the function to create a random array
     quick_sort = QuickSort(array)
     
     start_time = time.time() # Capture the start time

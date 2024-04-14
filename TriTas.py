@@ -1,3 +1,6 @@
+from liste import generer_liste
+import time
+
 def heapify(liste, n, i):
     """
     Fonction pour ajuster la structure du tas
@@ -35,14 +38,12 @@ def tri_par_tas(liste):
 
     return liste
 
-# Demande à l'utilisateur d'entrer une liste d'entiers séparés par des espaces
-liste_entiers_str = input("Entrez une liste d'entiers séparés par des espaces : ")
+# Exemple d'utilisation
+Liste = generer_liste()
 
-# Convertit la chaîne de caractères en une liste d'entiers
-liste_entiers = [int(x) for x in liste_entiers_str.split()]
+start_time = time.time()
+Liste_trié = tri_par_tas(Liste)
+end_time = time.time()
 
-# Tri la liste d'entiers
-liste_triee = tri_par_tas(liste_entiers)
-
-# Affiche la liste triée
-print("Liste triée :", liste_triee)
+execution_time = end_time - start_time
+print(f"Temps d'exécution de tri_par_tas : {execution_time} secondes")

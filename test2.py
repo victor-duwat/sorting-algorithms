@@ -46,22 +46,30 @@ print (sorted_array)
 import matplotlib.pyplot as plt
 import numpy as np
 
-def display_color_pie(color_list):
-    # Normalize RGB values to the range [0, 1]
-    normalized_colors = [(r/255, g/255, b/255) for r, g, b in color_list]
+def display_color_pie(unsorted_color_list, sorted_color_list):
+    # Normalize RGB values to the range [0, 1] for both lists
+    normalized_unsorted_colors = [(r/255, g/255, b/255) for r, g, b in unsorted_color_list]
+    normalized_sorted_colors = [(r/255, g/255, b/255) for r, g, b in sorted_color_list]
     
     # Create a list of sizes for the pie chart
     # Assuming each color should have an equal size, you can adjust this as needed
-    sizes = [1] * len(normalized_colors)
+    sizes = [1] * len(normalized_unsorted_colors)
     
-    # Create a pie chart
-    plt.pie(sizes, colors=normalized_colors)
+    # Create a figure with two subplots
+    fig, axs = plt.subplots(1, 2, figsize=(10, 5))
     
-    # Equal aspect ratio ensures that pie is drawn as a circle
-    plt.axis('equal')
+    # Create a pie chart for the unsorted colors
+    axs[0].pie(sizes, colors=normalized_unsorted_colors)
+    axs[0].set_title('Non trié')
+    axs[0].axis('equal')
+    
+    # Create a pie chart for the sorted colors
+    axs[1].pie(sizes, colors=normalized_sorted_colors)
+    axs[1].set_title('Trié')
+    axs[1].axis('equal')
     
     # Show the plot
     plt.show()
 
-# Display the color pie
-display_color_pie(sorted_array)
+# Display the color pie for both unsorted and sorted lists
+display_color_pie(generated_color, sorted_array)

@@ -1,3 +1,6 @@
+from liste import generer_liste
+import time
+
 def tri_bulle(liste):
     n = len(liste)
     for i in range(n):
@@ -8,8 +11,14 @@ def tri_bulle(liste):
     return liste
 
 # Exemple d'utilisation
-liste_entiers_str = input("Entrez une liste d'entiers séparés par des espaces : ")
-liste_entiers = [int(x) for x in liste_entiers_str.split()]
-liste_triee = tri_bulle(liste_entiers)
-liste_triee = tri_bulle(liste_entiers)
-print("Liste triée :", liste_triee)
+Liste = generer_liste()
+Liste_trié = tri_bulle(Liste)
+
+# Mesure du temps d'exécution
+start_time = time.time()
+Liste_trié = tri_bulle(Liste)
+end_time = time.time()
+
+execution_time = end_time - start_time
+print(f"Temps d'exécution de tri_bulle : {execution_time} secondes")
+
