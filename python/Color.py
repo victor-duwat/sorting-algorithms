@@ -33,7 +33,7 @@ for i in generated_color :
 
 #-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-from Quick import quick_sort
+from python.Quick import quick_sort
 
 sorted_array = quick_sort(generated_color)
 

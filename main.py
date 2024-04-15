@@ -1,13 +1,13 @@
 import tkinter as tk
 import random
 import time
-from Quick import quick_sort
-from Bubble import bubble_sort
-from Comb import comb_sort
-from Fusion import fusion_sort
-from Heapsort import heapsort
-from Selection import selection_sort
-from Insertion import insertion_sort
+from python.Quick import quick_sort
+from python.Bubble import bubble_sort
+from python.Comb import comb_sort
+from python.Fusion import fusion_sort
+from python.Heapsort import heapsort
+from python.Selection import selection_sort
+from python.Insertion import insertion_sort
 
 def generate_random_list():
     # Retrieve the number entered by the user
