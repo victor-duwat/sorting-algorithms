@@ -1,7 +1,7 @@
 import tkinter as tk
 import random
 import time
-from Quick import QuickSort
+from Quick import quick_sort
 from Bubble import bubble_sort
 from Comb import comb_sort
 from Fusion import fusion_sort
@@ -17,16 +17,21 @@ def generate_random_list():
     
     # Trier la liste avec chaque méthode de tri et mesurer le temps d'exécution
     results = []
-    for sort_func in [bubble_sort, comb_sort, fusion_sort, heapsort, selection_sort, insertion_sort]:
+    for sort_func in [bubble_sort, comb_sort, fusion_sort, heapsort, selection_sort, insertion_sort, quick_sort]:
         start_time = time.time()
-        sorted_list = sort_func(random_list.copy())
+        if sort_func == quick_sort:
+            # Pour quick_sort, fournir les indices low et high
+            sorted_list = sort_func(random_list.copy(), 0, len(random_list) - 1)
+        else:
+            # Pour les autres fonctions, simplement passer la liste
+            sorted_list = sort_func(random_list.copy())
         end_time = time.time()
         execution_time = end_time - start_time
         results.append((sorted_list, execution_time))
     
     # Afficher le résultat trié et le temps d'exécution
     result_text = "Liste triée: " + str(results[0][0]) + "\n\n"
-    for sort_func, (sorted_list, execution_time) in zip([bubble_sort, comb_sort, fusion_sort, heapsort, selection_sort, insertion_sort, QuickSort(random_list.copy()).sort], results):
+    for sort_func, (sorted_list, execution_time) in zip([bubble_sort, comb_sort, fusion_sort, heapsort, selection_sort, insertion_sort, quick_sort], results):
         result_text += f"{sort_func.__name__}: {execution_time:.5f} secondes\n"
     list_label.config(text=result_text)
 
