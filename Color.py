@@ -30,7 +30,7 @@ print(generated_color)
 
 #-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-from Tri_rapide import QuickSort
+from Quick import QuickSort
 
 quick_sort = QuickSort (generated_color)
 

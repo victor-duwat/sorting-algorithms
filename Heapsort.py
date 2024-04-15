@@ -1,6 +1,3 @@
-from liste import generer_liste
-import time
-
 def heapify(liste, n, i):
     """
     Fonction pour ajuster la structure du tas
@@ -24,7 +21,7 @@ def heapify(liste, n, i):
         # Heapify le sous-arbre réduit
         heapify(liste, n, plus_grand)
 
-def tri_par_tas(liste):
+def heapsort(liste):
     n = len(liste)
 
     # Construire le tas
@@ -37,13 +34,3 @@ def tri_par_tas(liste):
         heapify(liste, i, 0)
 
     return liste
-
-# Exemple d'utilisation
-Liste = generer_liste()
-
-start_time = time.time()
-Liste_trié = tri_par_tas(Liste)
-end_time = time.time()
-
-execution_time = end_time - start_time
-print(f"Temps d'exécution de tri_par_tas : {execution_time} secondes")
