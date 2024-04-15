@@ -26,18 +26,16 @@ def random_color_generator(n):
 
 # Example usage
 generated_color = (random_color_generator(78))
-first_color = generated_color
+first_color = []
+for i in generated_color :
+    first_color.append (i)
 
 
 #-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-from Quick import QuickSort
+from Quick import quick_sort
 
-quick_sort = QuickSort (generated_color)
-
-start_time = time.time() # Capture the start time
-sorted_array = quick_sort.sort()
-end_time = time.time() # Capture the end time
+sorted_array = quick_sort(generated_color)
 
 print ("\nsorted :\n")
 print (sorted_array)

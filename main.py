@@ -10,48 +10,43 @@ from Selection import selection_sort
 from Insertion import insertion_sort
 
 def generate_random_list():
-    # Récupérer le nombre saisi par l'utilisateur
+    # Retrieve the number entered by the user
     num = int(entry.get())
-    # Générer une liste aléatoire de la même longueur
+    # Generate a random list of the same length
     random_list = [random.randint(1, 100) for _ in range(num)]
     
-    # Trier la liste avec chaque méthode de tri et mesurer le temps d'exécution
+    # Sort the list with each sorting method and measure the execution time
     results = []
     for sort_func in [bubble_sort, comb_sort, fusion_sort, heapsort, selection_sort, insertion_sort, quick_sort]:
         start_time = time.time()
-        if sort_func == quick_sort:
-            # Pour quick_sort, fournir les indices low et high
-            sorted_list = sort_func(random_list.copy(), 0, len(random_list) - 1)
-        else:
-            # Pour les autres fonctions, simplement passer la liste
-            sorted_list = sort_func(random_list.copy())
+        sorted_list = sort_func(random_list.copy())
         end_time = time.time()
         execution_time = end_time - start_time
         results.append((sorted_list, execution_time))
     
-    # Afficher le résultat trié et le temps d'exécution
-    result_text = "Liste triée: " + str(results[0][0]) + "\n\n"
+    # Display the sorted result and the execution time
+    result_text = "Sorted list: " + str(results[0][0]) + "\n\n"
     for sort_func, (sorted_list, execution_time) in zip([bubble_sort, comb_sort, fusion_sort, heapsort, selection_sort, insertion_sort, quick_sort], results):
         result_text += f"{sort_func.__name__}: {execution_time:.5f} secondes\n"
     list_label.config(text=result_text)
 
-# Créer la fenêtre principale
+# Create the main window
 root = tk.Tk()
-root.title("Générateur de liste aléatoire et tri")
+root.title("Random List Generator and Sorter")
 
-# Créer un label et un champ de saisie pour le nombre
-num_label = tk.Label(root, text="Entrez un nombre:")
+# Create a label and an entry field for the number
+num_label = tk.Label(root, text="Enter a number:")
 num_label.pack()
 entry = tk.Entry(root)
 entry.pack()
 
-# Créer un bouton pour générer la liste aléatoire et la trier
-generate_button = tk.Button(root, text="Générer et trier la liste", command=generate_random_list)
+# Create a button to generate the random list and sort it
+generate_button = tk.Button(root, text="Generate and sort the list", command=generate_random_list)
 generate_button.pack()
 
-# Créer un label pour afficher le résultat
+# Create a label to display the result
 list_label = tk.Label(root, text="")
 list_label.pack()
 
-# Lancer la boucle principale de l'interface graphique
+# Start the main GUI loop
 root.mainloop()

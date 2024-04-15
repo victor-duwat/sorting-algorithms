@@ -10,13 +10,13 @@ def partition(array, low, high):
     array[i+1], array[high] = array[high], array[i+1]
     return (i+1)
 
-def quick_sort(array, low, high):
+def quick_sorting(array, low, high):
     if low < high:
         pi = partition(array, low, high)
-        quick_sort(array, low, pi-1)
-        quick_sort(array, pi+1, high)
+        quick_sorting(array, low, pi-1)
+        quick_sorting(array, pi+1, high)
 
-def sort_array(array):
+def quick_sort(array):
     n = len(array)
-    quick_sort(array, 0, n-1)
+    quick_sorting(array, 0, n-1)
     return array
