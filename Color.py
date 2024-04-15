@@ -26,7 +26,8 @@ def random_color_generator(n):
 
 # Example usage
 generated_color = (random_color_generator(78))
-print(generated_color)
+first_color = generated_color
+
 
 #-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -40,7 +41,7 @@ end_time = time.time() # Capture the end time
 
 print ("\nsorted :\n")
 print (sorted_array)
-
+print(first_color)
 #-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 import matplotlib.pyplot as plt
@@ -72,4 +73,7 @@ def display_color_pie(unsorted_color_list, sorted_color_list):
     plt.show()
 
 # Display the color pie for both unsorted and sorted lists
-display_color_pie(generated_color, sorted_array)
+display_color_pie(first_color, sorted_array)
+
+print (first_color)
+print (sorted_array)
