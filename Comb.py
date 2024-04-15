@@ -1,9 +1,9 @@
 def comb_sort(liste):
-    # Initialisation de l'intervalle de comparaison
+    # Initializing the comparison interval
     intervalle = len(liste)
-    # Réduction de l'intervalle de comparaison à chaque itération
+    # Reduced comparison interval at each iteration
     while intervalle > 1:
-        intervalle = int(intervalle // 1.3) # Convertir l'intervalle en entier après la division
+        intervalle = int(intervalle // 1.3) # Convert interval to integer after splitting
         for i in range(len(liste) - intervalle):
             if liste[i] > liste[i + intervalle]:
                 liste[i], liste[i + intervalle] = liste[i + intervalle], liste[i]
